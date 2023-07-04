@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="spring.service.MemberServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-07-04T09:10:10" hostname="shseos-mbp.local" time="0.87">
+  <properties/>
+  <testcase name="중복_회원_예외()" classname="spring.service.MemberServiceTest" time="0.855"/>
+  <testcase name="회원가입()" classname="spring.service.MemberServiceTest" time="0.014"/>
+  <system-out><![CDATA[18:10:07.019 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [spring.service.MemberServiceTest]: MemberServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:10:07.105 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration spring.Main for test class spring.service.MemberServiceTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.0)
+
+2023-07-04T18:10:07.493+09:00  INFO 4706 --- [    Test worker] spring.service.MemberServiceTest         : Starting MemberServiceTest using Java 17.0.7 with PID 4706 (started by grooo in /Users/grooo/Documents/workspace/bootStudy)
+2023-07-04T18:10:07.494+09:00  INFO 4706 --- [    Test worker] spring.service.MemberServiceTest         : No active profile set, falling back to 1 default profile: "default"
+2023-07-04T18:10:07.999+09:00  INFO 4706 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-04T18:10:08.020+09:00  INFO 4706 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
+2023-07-04T18:10:08.448+09:00  INFO 4706 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-04T18:10:08.486+09:00  INFO 4706 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.2.Final
+2023-07-04T18:10:08.488+09:00  INFO 4706 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-07-04T18:10:08.587+09:00  INFO 4706 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-04T18:10:08.694+09:00  INFO 4706 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-07-04T18:10:08.709+09:00  INFO 4706 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-04T18:10:08.855+09:00  INFO 4706 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=SA
+2023-07-04T18:10:08.856+09:00  INFO 4706 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-04T18:10:08.900+09:00  INFO 4706 --- [    Test worker] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+2023-07-04T18:10:09.146+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809146 | took 6ms | statement | connection 1| url jdbc:h2:mem:test
+select * from INFORMATION_SCHEMA.SEQUENCES
+select * from INFORMATION_SCHEMA.SEQUENCES;
+2023-07-04T18:10:09.158+09:00  INFO 4706 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-07-04T18:10:09.848+09:00  INFO 4706 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-04T18:10:09.860+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    drop table if exists category cascade 
+Hibernate: 
+    drop table if exists category cascade 
+2023-07-04T18:10:09.862+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809862 | took 0ms | statement | connection 2| url jdbc:h2:mem:test
+
+    drop table if exists category cascade 
+
+    drop table if exists category cascade ;
+2023-07-04T18:10:09.863+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    drop table if exists category_item cascade 
+Hibernate: 
+    drop table if exists category_item cascade 
+2023-07-04T18:10:09.864+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809864 | took 0ms | statement | connection 2| url jdbc:h2:mem:test
+
+    drop table if exists category_item cascade 
+
+    drop table if exists category_item cascade ;
+2023-07-04T18:10:09.864+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    drop table if exists delivery cascade 
+Hibernate: 
+    drop table if exists delivery cascade 
+2023-07-04T18:10:09.865+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809865 | took 0ms | statement | connection 2| url jdbc:h2:mem:test
+
+    drop table if exists delivery cascade 
+
+    drop table if exists delivery cascade ;
+2023-07-04T18:10:09.865+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    drop table if exists item cascade 
+Hibernate: 
+    drop table if exists item cascade 
+2023-07-04T18:10:09.866+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809866 | took 0ms | statement | connection 2| url jdbc:h2:mem:test
+
+    drop table if exists item cascade 
+
+    drop table if exists item cascade ;
+2023-07-04T18:10:09.866+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    drop table if exists member cascade 
+Hibernate: 
+    drop table if exists member cascade 
+2023-07-04T18:10:09.866+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809866 | took 0ms | statement | connection 2| url jdbc:h2:mem:test
+
+    drop table if exists member cascade 
+
+    drop table if exists member cascade ;
+2023-07-04T18:10:09.867+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    drop table if exists order_item cascade 
+Hibernate: 
+    drop table if exists order_item cascade 
+2023-07-04T18:10:09.867+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809867 | took 0ms | statement | connection 2| url jdbc:h2:mem:test
+
+    drop table if exists order_item cascade 
+
+    drop table if exists order_item cascade ;
+2023-07-04T18:10:09.868+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    drop table if exists orders cascade 
+Hibernate: 
+    drop table if exists orders cascade 
+2023-07-04T18:10:09.868+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809868 | took 0ms | statement | connection 2| url jdbc:h2:mem:test
+
+    drop table if exists orders cascade 
+
+    drop table if exists orders cascade ;
+2023-07-04T18:10:09.869+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    drop sequence if exists category_seq
+Hibernate: 
+    drop sequence if exists category_seq
+2023-07-04T18:10:09.869+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809869 | took 0ms | statement | connection 2| url jdbc:h2:mem:test
+
+    drop sequence if exists category_seq
+
+    drop sequence if exists category_seq;
+2023-07-04T18:10:09.870+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    drop sequence if exists delivery_seq
+Hibernate: 
+    drop sequence if exists delivery_seq
+2023-07-04T18:10:09.871+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809871 | took 0ms | statement | connection 2| url jdbc:h2:mem:test
+
+    drop sequence if exists delivery_seq
+
+    drop sequence if exists delivery_seq;
+2023-07-04T18:10:09.871+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    drop sequence if exists item_seq
+Hibernate: 
+    drop sequence if exists item_seq
+2023-07-04T18:10:09.872+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809872 | took 0ms | statement | connection 2| url jdbc:h2:mem:test
+
+    drop sequence if exists item_seq
+
+    drop sequence if exists item_seq;
+2023-07-04T18:10:09.872+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    drop sequence if exists member_seq
+Hibernate: 
+    drop sequence if exists member_seq
+2023-07-04T18:10:09.873+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809873 | took 0ms | statement | connection 2| url jdbc:h2:mem:test
+
+    drop sequence if exists member_seq
+
+    drop sequence if exists member_seq;
+2023-07-04T18:10:09.873+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    drop sequence if exists order_item_seq
+Hibernate: 
+    drop sequence if exists order_item_seq
+2023-07-04T18:10:09.874+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809874 | took 0ms | statement | connection 2| url jdbc:h2:mem:test
+
+    drop sequence if exists order_item_seq
+
+    drop sequence if exists order_item_seq;
+2023-07-04T18:10:09.874+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    drop sequence if exists orders_seq
+Hibernate: 
+    drop sequence if exists orders_seq
+2023-07-04T18:10:09.875+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809875 | took 0ms | statement | connection 2| url jdbc:h2:mem:test
+
+    drop sequence if exists orders_seq
+
+    drop sequence if exists orders_seq;
+2023-07-04T18:10:09.887+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    create sequence category_seq start with 1 increment by 50
+Hibernate: 
+    create sequence category_seq start with 1 increment by 50
+2023-07-04T18:10:09.891+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809891 | took 3ms | statement | connection 3| url jdbc:h2:mem:test
+
+    create sequence category_seq start with 1 increment by 50
+
+    create sequence category_seq start with 1 increment by 50;
+2023-07-04T18:10:09.892+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    create sequence delivery_seq start with 1 increment by 50
+Hibernate: 
+    create sequence delivery_seq start with 1 increment by 50
+2023-07-04T18:10:09.893+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809893 | took 0ms | statement | connection 3| url jdbc:h2:mem:test
+
+    create sequence delivery_seq start with 1 increment by 50
+
+    create sequence delivery_seq start with 1 increment by 50;
+2023-07-04T18:10:09.894+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    create sequence item_seq start with 1 increment by 50
+Hibernate: 
+    create sequence item_seq start with 1 increment by 50
+2023-07-04T18:10:09.895+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809895 | took 0ms | statement | connection 3| url jdbc:h2:mem:test
+
+    create sequence item_seq start with 1 increment by 50
+
+    create sequence item_seq start with 1 increment by 50;
+2023-07-04T18:10:09.895+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    create sequence member_seq start with 1 increment by 50
+Hibernate: 
+    create sequence member_seq start with 1 increment by 50
+2023-07-04T18:10:09.896+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809896 | took 0ms | statement | connection 3| url jdbc:h2:mem:test
+
+    create sequence member_seq start with 1 increment by 50
+
+    create sequence member_seq start with 1 increment by 50;
+2023-07-04T18:10:09.896+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    create sequence order_item_seq start with 1 increment by 50
+Hibernate: 
+    create sequence order_item_seq start with 1 increment by 50
+2023-07-04T18:10:09.897+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809897 | took 0ms | statement | connection 3| url jdbc:h2:mem:test
+
+    create sequence order_item_seq start with 1 increment by 50
+
+    create sequence order_item_seq start with 1 increment by 50;
+2023-07-04T18:10:09.898+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    create sequence orders_seq start with 1 increment by 50
+Hibernate: 
+    create sequence orders_seq start with 1 increment by 50
+2023-07-04T18:10:09.899+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809899 | took 0ms | statement | connection 3| url jdbc:h2:mem:test
+
+    create sequence orders_seq start with 1 increment by 50
+
+    create sequence orders_seq start with 1 increment by 50;
+2023-07-04T18:10:09.902+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    create table category (
+        created_at timestamp(6),
+        id bigint not null,
+        parent_id bigint,
+        updated_at timestamp(6),
+        name varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table category (
+        created_at timestamp(6),
+        id bigint not null,
+        parent_id bigint,
+        updated_at timestamp(6),
+        name varchar(255),
+        primary key (id)
+    )
+2023-07-04T18:10:09.909+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809909 | took 5ms | statement | connection 3| url jdbc:h2:mem:test
+
+    create table category (
+        created_at timestamp(6),
+        id bigint not null,
+        parent_id bigint,
+        updated_at timestamp(6),
+        name varchar(255),
+        primary key (id)
+    )
+
+    create table category (
+        created_at timestamp(6),
+        id bigint not null,
+        parent_id bigint,
+        updated_at timestamp(6),
+        name varchar(255),
+        primary key (id)
+    );
+2023-07-04T18:10:09.910+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    create table category_item (
+        category_id bigint not null,
+        item_id bigint not null
+    )
+Hibernate: 
+    create table category_item (
+        category_id bigint not null,
+        item_id bigint not null
+    )
+2023-07-04T18:10:09.911+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809911 | took 0ms | statement | connection 3| url jdbc:h2:mem:test
+
+    create table category_item (
+        category_id bigint not null,
+        item_id bigint not null
+    )
+
+    create table category_item (
+        category_id bigint not null,
+        item_id bigint not null
+    );
+2023-07-04T18:10:09.912+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    create table delivery (
+        created_at timestamp(6),
+        id bigint not null,
+        updated_at timestamp(6),
+        city varchar(255),
+        status varchar(255) check (status in ('READY','CAMP')),
+        street varchar(255),
+        zipcode varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table delivery (
+        created_at timestamp(6),
+        id bigint not null,
+        updated_at timestamp(6),
+        city varchar(255),
+        status varchar(255) check (status in ('READY','CAMP')),
+        street varchar(255),
+        zipcode varchar(255),
+        primary key (id)
+    )
+2023-07-04T18:10:09.918+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809918 | took 4ms | statement | connection 3| url jdbc:h2:mem:test
+
+    create table delivery (
+        created_at timestamp(6),
+        id bigint not null,
+        updated_at timestamp(6),
+        city varchar(255),
+        status varchar(255) check (status in ('READY','CAMP')),
+        street varchar(255),
+        zipcode varchar(255),
+        primary key (id)
+    )
+
+    create table delivery (
+        created_at timestamp(6),
+        id bigint not null,
+        updated_at timestamp(6),
+        city varchar(255),
+        status varchar(255) check (status in ('READY','CAMP')),
+        street varchar(255),
+        zipcode varchar(255),
+        primary key (id)
+    );
+2023-07-04T18:10:09.919+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    create table item (
+        price integer not null,
+        stock_quantity integer not null,
+        created_at timestamp(6),
+        id bigint not null,
+        updated_at timestamp(6),
+        dtype varchar(31) not null,
+        actor varchar(255),
+        artist varchar(255),
+        author varchar(255),
+        director varchar(255),
+        etc varchar(255),
+        isbn varchar(255),
+        name varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table item (
+        price integer not null,
+        stock_quantity integer not null,
+        created_at timestamp(6),
+        id bigint not null,
+        updated_at timestamp(6),
+        dtype varchar(31) not null,
+        actor varchar(255),
+        artist varchar(255),
+        author varchar(255),
+        director varchar(255),
+        etc varchar(255),
+        isbn varchar(255),
+        name varchar(255),
+        primary key (id)
+    )
+2023-07-04T18:10:09.922+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809922 | took 1ms | statement | connection 3| url jdbc:h2:mem:test
+
+    create table item (
+        price integer not null,
+        stock_quantity integer not null,
+        created_at timestamp(6),
+        id bigint not null,
+        updated_at timestamp(6),
+        dtype varchar(31) not null,
+        actor varchar(255),
+        artist varchar(255),
+        author varchar(255),
+        director varchar(255),
+        etc varchar(255),
+        isbn varchar(255),
+        name varchar(255),
+        primary key (id)
+    )
+
+    create table item (
+        price integer not null,
+        stock_quantity integer not null,
+        created_at timestamp(6),
+        id bigint not null,
+        updated_at timestamp(6),
+        dtype varchar(31) not null,
+        actor varchar(255),
+        artist varchar(255),
+        author varchar(255),
+        director varchar(255),
+        etc varchar(255),
+        isbn varchar(255),
+        name varchar(255),
+        primary key (id)
+    );
+2023-07-04T18:10:09.923+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    create table member (
+        created_at timestamp(6),
+        id bigint not null,
+        updated_at timestamp(6),
+        city varchar(255),
+        name varchar(255),
+        street varchar(255),
+        zipcode varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table member (
+        created_at timestamp(6),
+        id bigint not null,
+        updated_at timestamp(6),
+        city varchar(255),
+        name varchar(255),
+        street varchar(255),
+        zipcode varchar(255),
+        primary key (id)
+    )
+2023-07-04T18:10:09.925+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809925 | took 1ms | statement | connection 3| url jdbc:h2:mem:test
+
+    create table member (
+        created_at timestamp(6),
+        id bigint not null,
+        updated_at timestamp(6),
+        city varchar(255),
+        name varchar(255),
+        street varchar(255),
+        zipcode varchar(255),
+        primary key (id)
+    )
+
+    create table member (
+        created_at timestamp(6),
+        id bigint not null,
+        updated_at timestamp(6),
+        city varchar(255),
+        name varchar(255),
+        street varchar(255),
+        zipcode varchar(255),
+        primary key (id)
+    );
+2023-07-04T18:10:09.927+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    create table order_item (
+        count integer not null,
+        order_price integer not null,
+        created_at timestamp(6),
+        id bigint not null,
+        item_id bigint,
+        order_id bigint,
+        updated_at timestamp(6),
+        primary key (id)
+    )
+Hibernate: 
+    create table order_item (
+        count integer not null,
+        order_price integer not null,
+        created_at timestamp(6),
+        id bigint not null,
+        item_id bigint,
+        order_id bigint,
+        updated_at timestamp(6),
+        primary key (id)
+    )
+2023-07-04T18:10:09.928+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809928 | took 1ms | statement | connection 3| url jdbc:h2:mem:test
+
+    create table order_item (
+        count integer not null,
+        order_price integer not null,
+        created_at timestamp(6),
+        id bigint not null,
+        item_id bigint,
+        order_id bigint,
+        updated_at timestamp(6),
+        primary key (id)
+    )
+
+    create table order_item (
+        count integer not null,
+        order_price integer not null,
+        created_at timestamp(6),
+        id bigint not null,
+        item_id bigint,
+        order_id bigint,
+        updated_at timestamp(6),
+        primary key (id)
+    );
+2023-07-04T18:10:09.931+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    create table orders (
+        created_at timestamp(6),
+        delivery_id bigint unique,
+        id bigint not null,
+        member_id bigint,
+        order_date timestamp(6),
+        updated_at timestamp(6),
+        status varchar(255) check (status in ('ORDER','CANCLE')),
+        primary key (id)
+    )
+Hibernate: 
+    create table orders (
+        created_at timestamp(6),
+        delivery_id bigint unique,
+        id bigint not null,
+        member_id bigint,
+        order_date timestamp(6),
+        updated_at timestamp(6),
+        status varchar(255) check (status in ('ORDER','CANCLE')),
+        primary key (id)
+    )
+2023-07-04T18:10:09.935+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809935 | took 3ms | statement | connection 3| url jdbc:h2:mem:test
+
+    create table orders (
+        created_at timestamp(6),
+        delivery_id bigint unique,
+        id bigint not null,
+        member_id bigint,
+        order_date timestamp(6),
+        updated_at timestamp(6),
+        status varchar(255) check (status in ('ORDER','CANCLE')),
+        primary key (id)
+    )
+
+    create table orders (
+        created_at timestamp(6),
+        delivery_id bigint unique,
+        id bigint not null,
+        member_id bigint,
+        order_date timestamp(6),
+        updated_at timestamp(6),
+        status varchar(255) check (status in ('ORDER','CANCLE')),
+        primary key (id)
+    );
+2023-07-04T18:10:09.936+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    alter table if exists category 
+       add constraint FK2y94svpmqttx80mshyny85wqr 
+       foreign key (parent_id) 
+       references category
+Hibernate: 
+    alter table if exists category 
+       add constraint FK2y94svpmqttx80mshyny85wqr 
+       foreign key (parent_id) 
+       references category
+2023-07-04T18:10:09.943+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809943 | took 6ms | statement | connection 3| url jdbc:h2:mem:test
+
+    alter table if exists category 
+       add constraint FK2y94svpmqttx80mshyny85wqr 
+       foreign key (parent_id) 
+       references category
+
+    alter table if exists category 
+       add constraint FK2y94svpmqttx80mshyny85wqr 
+       foreign key (parent_id) 
+       references category;
+2023-07-04T18:10:09.944+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    alter table if exists category_item 
+       add constraint FKu8b4lwqutcdq3363gf6mlujq 
+       foreign key (item_id) 
+       references item
+Hibernate: 
+    alter table if exists category_item 
+       add constraint FKu8b4lwqutcdq3363gf6mlujq 
+       foreign key (item_id) 
+       references item
+2023-07-04T18:10:09.946+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809946 | took 1ms | statement | connection 3| url jdbc:h2:mem:test
+
+    alter table if exists category_item 
+       add constraint FKu8b4lwqutcdq3363gf6mlujq 
+       foreign key (item_id) 
+       references item
+
+    alter table if exists category_item 
+       add constraint FKu8b4lwqutcdq3363gf6mlujq 
+       foreign key (item_id) 
+       references item;
+2023-07-04T18:10:09.947+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    alter table if exists category_item 
+       add constraint FKcq2n0opf5shyh84ex1fhukcbh 
+       foreign key (category_id) 
+       references category
+Hibernate: 
+    alter table if exists category_item 
+       add constraint FKcq2n0opf5shyh84ex1fhukcbh 
+       foreign key (category_id) 
+       references category
+2023-07-04T18:10:09.949+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809949 | took 1ms | statement | connection 3| url jdbc:h2:mem:test
+
+    alter table if exists category_item 
+       add constraint FKcq2n0opf5shyh84ex1fhukcbh 
+       foreign key (category_id) 
+       references category
+
+    alter table if exists category_item 
+       add constraint FKcq2n0opf5shyh84ex1fhukcbh 
+       foreign key (category_id) 
+       references category;
+2023-07-04T18:10:09.949+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    alter table if exists order_item 
+       add constraint FKija6hjjiit8dprnmvtvgdp6ru 
+       foreign key (item_id) 
+       references item
+Hibernate: 
+    alter table if exists order_item 
+       add constraint FKija6hjjiit8dprnmvtvgdp6ru 
+       foreign key (item_id) 
+       references item
+2023-07-04T18:10:09.952+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809952 | took 2ms | statement | connection 3| url jdbc:h2:mem:test
+
+    alter table if exists order_item 
+       add constraint FKija6hjjiit8dprnmvtvgdp6ru 
+       foreign key (item_id) 
+       references item
+
+    alter table if exists order_item 
+       add constraint FKija6hjjiit8dprnmvtvgdp6ru 
+       foreign key (item_id) 
+       references item;
+2023-07-04T18:10:09.953+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    alter table if exists order_item 
+       add constraint FKt4dc2r9nbvbujrljv3e23iibt 
+       foreign key (order_id) 
+       references orders
+Hibernate: 
+    alter table if exists order_item 
+       add constraint FKt4dc2r9nbvbujrljv3e23iibt 
+       foreign key (order_id) 
+       references orders
+2023-07-04T18:10:09.955+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809955 | took 1ms | statement | connection 3| url jdbc:h2:mem:test
+
+    alter table if exists order_item 
+       add constraint FKt4dc2r9nbvbujrljv3e23iibt 
+       foreign key (order_id) 
+       references orders
+
+    alter table if exists order_item 
+       add constraint FKt4dc2r9nbvbujrljv3e23iibt 
+       foreign key (order_id) 
+       references orders;
+2023-07-04T18:10:09.955+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       add constraint FKtkrur7wg4d8ax0pwgo0vmy20c 
+       foreign key (delivery_id) 
+       references delivery
+Hibernate: 
+    alter table if exists orders 
+       add constraint FKtkrur7wg4d8ax0pwgo0vmy20c 
+       foreign key (delivery_id) 
+       references delivery
+2023-07-04T18:10:09.957+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809957 | took 1ms | statement | connection 3| url jdbc:h2:mem:test
+
+    alter table if exists orders 
+       add constraint FKtkrur7wg4d8ax0pwgo0vmy20c 
+       foreign key (delivery_id) 
+       references delivery
+
+    alter table if exists orders 
+       add constraint FKtkrur7wg4d8ax0pwgo0vmy20c 
+       foreign key (delivery_id) 
+       references delivery;
+2023-07-04T18:10:09.957+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    alter table if exists orders 
+       add constraint FKpktxwhj3x9m4gth5ff6bkqgeb 
+       foreign key (member_id) 
+       references member
+Hibernate: 
+    alter table if exists orders 
+       add constraint FKpktxwhj3x9m4gth5ff6bkqgeb 
+       foreign key (member_id) 
+       references member
+2023-07-04T18:10:09.958+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461809958 | took 1ms | statement | connection 3| url jdbc:h2:mem:test
+
+    alter table if exists orders 
+       add constraint FKpktxwhj3x9m4gth5ff6bkqgeb 
+       foreign key (member_id) 
+       references member
+
+    alter table if exists orders 
+       add constraint FKpktxwhj3x9m4gth5ff6bkqgeb 
+       foreign key (member_id) 
+       references member;
+2023-07-04T18:10:09.960+09:00  INFO 4706 --- [    Test worker] o.h.t.s.i.e.GenerationTargetToDatabase   : HHH000476: Executing script '[injected ScriptSourceInputNonExistentImpl script]'
+2023-07-04T18:10:09.962+09:00  INFO 4706 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-04T18:10:10.130+09:00  WARN 4706 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-04T18:10:10.271+09:00  INFO 4706 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2023-07-04T18:10:10.382+09:00  INFO 4706 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:test'
+2023-07-04T18:10:10.444+09:00  INFO 4706 --- [    Test worker] spring.service.MemberServiceTest         : Started MemberServiceTest in 3.219 seconds (process running for 4.345)
+2023-07-04T18:10:11.250+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        m1_0.id,
+        m1_0.city,
+        m1_0.street,
+        m1_0.zipcode,
+        m1_0.created_at,
+        m1_0.name,
+        m1_0.updated_at 
+    from
+        member m1_0 
+    where
+        m1_0.name=?
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.city,
+        m1_0.street,
+        m1_0.zipcode,
+        m1_0.created_at,
+        m1_0.name,
+        m1_0.updated_at 
+    from
+        member m1_0 
+    where
+        m1_0.name=?
+2023-07-04T18:10:11.251+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [1] as [VARCHAR] - [kim]
+2023-07-04T18:10:11.252+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461811252 | took 0ms | statement | connection 5| url jdbc:h2:mem:test
+select m1_0.id,m1_0.city,m1_0.street,m1_0.zipcode,m1_0.created_at,m1_0.name,m1_0.updated_at from member m1_0 where m1_0.name=?
+select m1_0.id,m1_0.city,m1_0.street,m1_0.zipcode,m1_0.created_at,m1_0.name,m1_0.updated_at from member m1_0 where m1_0.name='kim';
+2023-07-04T18:10:11.256+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        next value for member_seq
+Hibernate: 
+    select
+        next value for member_seq
+2023-07-04T18:10:11.258+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461811258 | took 0ms | statement | connection 5| url jdbc:h2:mem:test
+select next value for member_seq
+select next value for member_seq;
+2023-07-04T18:10:11.287+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member
+        (city,street,zipcode,created_at,name,updated_at,id) 
+    values
+        (?,?,?,?,?,?,?)
+Hibernate: 
+    insert 
+    into
+        member
+        (city,street,zipcode,created_at,name,updated_at,id) 
+    values
+        (?,?,?,?,?,?,?)
+2023-07-04T18:10:11.289+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [1] as [VARCHAR] - [null]
+2023-07-04T18:10:11.289+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [2] as [VARCHAR] - [null]
+2023-07-04T18:10:11.289+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [3] as [VARCHAR] - [null]
+2023-07-04T18:10:11.289+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [4] as [TIMESTAMP] - [2023-07-04T18:10:11.281530]
+2023-07-04T18:10:11.290+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [5] as [VARCHAR] - [kim]
+2023-07-04T18:10:11.290+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [6] as [TIMESTAMP] - [2023-07-04T18:10:11.281581]
+2023-07-04T18:10:11.290+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [7] as [BIGINT] - [1]
+2023-07-04T18:10:11.292+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461811292 | took 0ms | statement | connection 5| url jdbc:h2:mem:test
+insert into member (city,street,zipcode,created_at,name,updated_at,id) values (?,?,?,?,?,?,?)
+insert into member (city,street,zipcode,created_at,name,updated_at,id) values (NULL,NULL,NULL,'2023-07-04T18:10:11.281+0900','kim','2023-07-04T18:10:11.281+0900',1);
+2023-07-04T18:10:11.297+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        m1_0.id,
+        m1_0.city,
+        m1_0.street,
+        m1_0.zipcode,
+        m1_0.created_at,
+        m1_0.name,
+        m1_0.updated_at 
+    from
+        member m1_0 
+    where
+        m1_0.name=?
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.city,
+        m1_0.street,
+        m1_0.zipcode,
+        m1_0.created_at,
+        m1_0.name,
+        m1_0.updated_at 
+    from
+        member m1_0 
+    where
+        m1_0.name=?
+2023-07-04T18:10:11.298+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [1] as [VARCHAR] - [kim]
+2023-07-04T18:10:11.298+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461811298 | took 0ms | statement | connection 5| url jdbc:h2:mem:test
+select m1_0.id,m1_0.city,m1_0.street,m1_0.zipcode,m1_0.created_at,m1_0.name,m1_0.updated_at from member m1_0 where m1_0.name=?
+select m1_0.id,m1_0.city,m1_0.street,m1_0.zipcode,m1_0.created_at,m1_0.name,m1_0.updated_at from member m1_0 where m1_0.name='kim';
+2023-07-04T18:10:11.307+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461811307 | took 0ms | rollback | connection 5| url jdbc:h2:mem:test
+
+;
+2023-07-04T18:10:11.317+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        m1_0.id,
+        m1_0.city,
+        m1_0.street,
+        m1_0.zipcode,
+        m1_0.created_at,
+        m1_0.name,
+        m1_0.updated_at 
+    from
+        member m1_0 
+    where
+        m1_0.name=?
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.city,
+        m1_0.street,
+        m1_0.zipcode,
+        m1_0.created_at,
+        m1_0.name,
+        m1_0.updated_at 
+    from
+        member m1_0 
+    where
+        m1_0.name=?
+2023-07-04T18:10:11.317+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [1] as [VARCHAR] - [kim]
+2023-07-04T18:10:11.317+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461811317 | took 0ms | statement | connection 6| url jdbc:h2:mem:test
+select m1_0.id,m1_0.city,m1_0.street,m1_0.zipcode,m1_0.created_at,m1_0.name,m1_0.updated_at from member m1_0 where m1_0.name=?
+select m1_0.id,m1_0.city,m1_0.street,m1_0.zipcode,m1_0.created_at,m1_0.name,m1_0.updated_at from member m1_0 where m1_0.name='kim';
+2023-07-04T18:10:11.318+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        next value for member_seq
+Hibernate: 
+    select
+        next value for member_seq
+2023-07-04T18:10:11.318+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461811318 | took 0ms | statement | connection 6| url jdbc:h2:mem:test
+select next value for member_seq
+select next value for member_seq;
+2023-07-04T18:10:11.319+09:00 DEBUG 4706 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        member
+        (city,street,zipcode,created_at,name,updated_at,id) 
+    values
+        (?,?,?,?,?,?,?)
+Hibernate: 
+    insert 
+    into
+        member
+        (city,street,zipcode,created_at,name,updated_at,id) 
+    values
+        (?,?,?,?,?,?,?)
+2023-07-04T18:10:11.320+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [1] as [VARCHAR] - [null]
+2023-07-04T18:10:11.320+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [2] as [VARCHAR] - [null]
+2023-07-04T18:10:11.320+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [3] as [VARCHAR] - [null]
+2023-07-04T18:10:11.320+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [4] as [TIMESTAMP] - [2023-07-04T18:10:11.319434]
+2023-07-04T18:10:11.320+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [5] as [VARCHAR] - [kim]
+2023-07-04T18:10:11.320+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [6] as [TIMESTAMP] - [2023-07-04T18:10:11.319456]
+2023-07-04T18:10:11.320+09:00 TRACE 4706 --- [    Test worker] org.hibernate.orm.jdbc.bind              : binding parameter [7] as [BIGINT] - [2]
+2023-07-04T18:10:11.321+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461811321 | took 0ms | statement | connection 6| url jdbc:h2:mem:test
+insert into member (city,street,zipcode,created_at,name,updated_at,id) values (?,?,?,?,?,?,?)
+insert into member (city,street,zipcode,created_at,name,updated_at,id) values (NULL,NULL,NULL,'2023-07-04T18:10:11.319+0900','kim','2023-07-04T18:10:11.319+0900',2);
+2023-07-04T18:10:11.327+09:00  INFO 4706 --- [    Test worker] p6spy                                    : #1688461811327 | took 0ms | rollback | connection 6| url jdbc:h2:mem:test
+
+;
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

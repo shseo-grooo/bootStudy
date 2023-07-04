@@ -9,7 +9,7 @@ spring:
 #        show_sql: true
     defer-datasource-initialization: true
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:mem:db
     username: sa
     driver-class-name: org.h2.Driver
   h2:

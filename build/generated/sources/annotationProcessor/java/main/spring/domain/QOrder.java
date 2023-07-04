@@ -36,7 +36,7 @@ public class QOrder extends EntityPathBase<Order> {
 
     public final DateTimePath<java.time.LocalDateTime> orderDate = createDateTime("orderDate", java.time.LocalDateTime.class);
 
-    public final ListPath<OrderItem, QOrderItem> OrderItems = this.<OrderItem, QOrderItem>createList("OrderItems", OrderItem.class, QOrderItem.class, PathInits.DIRECT2);
+    public final ListPath<OrderItem, QOrderItem> orderItems = this.<OrderItem, QOrderItem>createList("orderItems", OrderItem.class, QOrderItem.class, PathInits.DIRECT2);
 
     public final EnumPath<spring.domain.custom_enum.OrderStatus> status = createEnum("status", spring.domain.custom_enum.OrderStatus.class);
 

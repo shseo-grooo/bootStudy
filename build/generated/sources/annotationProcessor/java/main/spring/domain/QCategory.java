@@ -32,7 +32,7 @@ public class QCategory extends EntityPathBase<Category> {
     //inherited
     public final NumberPath<Long> id = _super.id;
 
-    public final ListPath<Item, QItem> items = this.<Item, QItem>createList("items", Item.class, QItem.class, PathInits.DIRECT2);
+    public final ListPath<spring.domain.item.Item, spring.domain.item.QItem> items = this.<spring.domain.item.Item, spring.domain.item.QItem>createList("items", spring.domain.item.Item.class, spring.domain.item.QItem.class, PathInits.DIRECT2);
 
     public final StringPath name = createString("name");
 

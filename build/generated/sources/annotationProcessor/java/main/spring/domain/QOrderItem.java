@@ -32,7 +32,7 @@ public class QOrderItem extends EntityPathBase<OrderItem> {
     //inherited
     public final NumberPath<Long> id = _super.id;
 
-    public final QItem item;
+    public final spring.domain.item.QItem item;
 
     public final QOrder order;
 
@@ -59,7 +59,7 @@ public class QOrderItem extends EntityPathBase<OrderItem> {
 
     public QOrderItem(Class<? extends OrderItem> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.item = inits.isInitialized("item") ? new QItem(forProperty("item")) : null;
+        this.item = inits.isInitialized("item") ? new spring.domain.item.QItem(forProperty("item")) : null;
         this.order = inits.isInitialized("order") ? new QOrder(forProperty("order"), inits.get("order")) : null;
     }
 
