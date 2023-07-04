@@ -3,11 +3,13 @@ package spring.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import spring.domain.custom_enum.DeliveryStatus;
 import spring.domain.custom_enum.OrderStatus;
 import spring.domain.shared.BaseEntity;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static jakarta.persistence.FetchType.*;
@@ -37,7 +39,7 @@ public class Order extends BaseEntity {
         member.getOrders().add(this);
     }
 
-    public void addOrderItme(OrderItem orderItem) {
+    public void addOrderItem(OrderItem orderItem) {
         this.orderItems.add(orderItem);
         orderItem.setOrder(this);
     }
@@ -45,5 +47,30 @@ public class Order extends BaseEntity {
     public void setDelivery(Delivery delivery) {
         this.delivery = delivery;
         delivery.setOrder(this);
+    }
+
+    public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
+        Order order = new Order();
+        order.setMember(member);
+        order.setDelivery(delivery);
+        Arrays.stream(orderItems).forEach(order::addOrderItem);
+        order.setStatus(OrderStatus.ORDER);
+        order.setOrderDate(LocalDateTime.now());
+        return order;
+    }
+
+    public void cancel() {
+        if (delivery.getStatus() == DeliveryStatus.CAMP) {
+            throw new IllegalStateException("이미 배송완료된 상품은 취소가 불가능합니다.");
+        }
+
+        this.setStatus(OrderStatus.CANCLE);
+        getOrderItems().forEach(OrderItem::cancel);
+    }
+
+    public int getTotalPrice() {
+        return getOrderItems().stream()
+                .mapToInt(OrderItem::getTotalPrice)
+                .sum();
     }
 }
