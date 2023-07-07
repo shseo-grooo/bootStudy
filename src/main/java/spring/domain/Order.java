@@ -1,7 +1,9 @@
 package spring.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import spring.domain.custom_enum.DeliveryStatus;
 import spring.domain.custom_enum.OrderStatus;
@@ -17,6 +19,7 @@ import static jakarta.persistence.FetchType.*;
 @Entity
 @Setter @Getter
 @Table(name = "orders")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order extends BaseEntity {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id")
@@ -60,11 +63,11 @@ public class Order extends BaseEntity {
     }
 
     public void cancel() {
-        if (delivery.getStatus() == DeliveryStatus.CAMP) {
+        if (delivery.getStatus() == DeliveryStatus.COMP) {
             throw new IllegalStateException("이미 배송완료된 상품은 취소가 불가능합니다.");
         }
 
-        this.setStatus(OrderStatus.CANCLE);
+        this.setStatus(OrderStatus.CANCEL);
         getOrderItems().forEach(OrderItem::cancel);
     }
 

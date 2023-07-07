@@ -4,7 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import spring.domain.item.Item;
 import spring.domain.shared.BaseEntity;
@@ -13,6 +15,7 @@ import static jakarta.persistence.FetchType.*;
 
 @Entity
 @Setter @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem extends BaseEntity {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "item_id")

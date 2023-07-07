@@ -1,7 +1,5 @@
 spring:
   jpa:
-    hibernate:
-      ddl-auto: create
     show-sql: true
     properties:
       hibernate:
@@ -12,9 +10,6 @@ spring:
     url: jdbc:h2:mem:test;MODE=MariaDB
     username: sa
     driver-class-name: org.h2.Driver
-  h2:
-    console:
-      enabled: true
 
 logging.level:
   org.hibernate.SQL: debug

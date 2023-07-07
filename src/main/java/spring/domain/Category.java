@@ -1,7 +1,9 @@
 package spring.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import spring.domain.item.Item;
 import spring.domain.shared.BaseEntity;
@@ -13,6 +15,7 @@ import static jakarta.persistence.FetchType.*;
 
 @Entity
 @Setter @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Category extends BaseEntity {
     private String name;
 
